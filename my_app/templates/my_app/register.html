@@ -1,0 +1,557 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event registration</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/register.css'%}">
+  <style>
+      * {
+      box-sizing: border-box;
+      }
+      html,{
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+
+      font-size: 14px;
+      color: #666;
+      }
+      input, textarea {
+      outline: none;
+      }
+      h1 {
+      margin-top: 0;
+      font-weight: 500;
+      }
+      .form1 {
+      position: relative;
+      width: 80%;
+      border-radius: 30px;
+      background: #ffffff;
+      }
+      .form-left-decoration,
+      .form-right-decoration {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 20px;
+      border-radius: 20px;
+      background: #32dded;
+      }
+      .form-left-decoration {
+      bottom: 70px;
+      left:32.5%;
+      }
+      .form-right-decoration {
+      top: 80px;
+      right: 32.5%;
+      }
+      .form-left-decoration:before,
+      .form-left-decoration:after,
+      .form-right-decoration:before,
+      .form-right-decoration:after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 20px;
+      border-radius: 30px;
+      background: #fff;
+      }
+      .form-left-decoration:before {
+      top: -20px;
+      left: 0px;
+      }
+      .form-left-decoration:after {
+      top: 20px;
+      left: 10px;
+      }
+      .form-right-decoration:before {
+      top: -20px;
+      right: 0px;
+      }
+      .form-right-decoration:after {
+      top: 20px;
+      right: 10px;
+      }
+      .circle {
+      position: absolute;
+      bottom: 90px;
+      left:30.5%;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      }
+      .form-inner {
+      padding: 20px;
+      }
+      .form-inner input,
+      .form-inner textarea {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 20px;
+      background: #d0dfe8;
+      }
+      .form-inner textarea {
+      resize: none;
+      }
+      button {
+      width: 50%;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 20px;
+      border: none;
+      border-bottom: 4px solid #26a9e0;
+      background: #32dded;
+      font-size: 16px;
+      font-weight: 400;
+      color: #fff;
+      }
+      button:hover {
+      background: #26a9e0;
+      }
+       .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      @media (min-width: 468px) {
+      .form1 {
+      width: 60%;
+      }
+      }
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */ /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+    </style>
+</head>
+<body>
+  <!--<h1 style="text-align: center; color: rgb(245, 65, 10)">Event Registration form</h1>-->
+  <div class="div1">
+    <form class="form" method="post">
+      {%csrf_token%}
+    <div>
+      <h1 style="color: rgb(255 , 255 , 255); text-align: center; margin-bottom: 30px;"><i>Sport Events</i></h1>
+    </div>
+    <table class="Sportevents" style="width: 100%">
+      <tr>
+      <td>
+        <input type="checkbox" class="crick" id="one" style="margin-left: 60px; margin-bottom: 15px;">
+        <label for="one" class="b1">Cricket</label>
+      </td>
+      <td>
+        <input type="checkbox" class="foot" id="two" style="margin-left: 80px; margin-bottom: 15px;">
+          <label for="two" class="b1">Football</label>
+      </td>
+    </tr>
+    <tr style="padding-top: 15px;">
+      <td>
+        <input type="checkbox" class="baskball" id="three" style="margin-left: 60px; margin-bottom: 15px;">
+        <label for="three" class="b1">Basketball</label>
+      </td>
+      <td>
+        <input type="checkbox" class="kabaddi" id="four" style="margin-left: 80px; margin-bottom: 15px;">
+        <label for="four" class="b1">Kabaddi</label>
+      </td>
+    </tr>
+    <tr style="padding-top: 15px;">
+      <td>
+        <input type="checkbox" class="badminton" id="five" style="margin-left: 60px; margin-bottom: 15px;">
+        <label for="five" class="b1">Badminton</label>
+      </td>
+      <td>
+        <input type="checkbox" class="volleyball" id="six" style="margin-left: 80px; margin-bottom: 15px;">
+        <label for="six" class="b1">Volleyball</label>
+      </td>
+    </tr>
+    <tr style="padding-top: 20px;">
+      <td>
+        <input type="checkbox" class="tableTennis" id="seven" style="margin-left: 60px;">
+        <label for="seven" class="b1">Table tennis</label>
+      </td>
+      <td>
+        <input type="checkbox" class="Hockey" id="eight" style="margin-left: 80px;">
+        <label for="eight" class="b1">Hockey</label>
+      </td>
+    </tr>
+
+
+   </table>
+      <br>
+      <small>
+        Done with registration?  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   <a href="{% url 'institute' %}">Back</a>
+      </small>
+
+<!-- The Modal -->
+<div id="myModal1" class="modal">
+  <div class="modal-color">
+  <div class="modal-content">
+    <span class="close1" style="margin-right: 20px;color: rgb(52, 235, 229);">&times;</span>
+    <div class="form-popup" Id="myForm">
+            <form class="form1 form-container" method="post">
+              {%csrf_token%}
+              <input type="text" name="game" value="cricket" hidden>
+              <div class="form-left-decoration"></div>
+      <div class="form-right-decoration"></div>
+      <div class="circle"></div>
+      <div class="form-inner">
+        <h1>Fill Up</h1>
+        <input type="text" placeholder="Venue" name="venue">
+        <input type="date" placeholder="Date" name="from">
+        <input type="number" placeholder="No. of teams" name="teams">
+        <input type="number" placeholder="Entry Fee" name="fee">
+        <h2> Prize Money </h2>
+        <input type="number" placeholder="1st Prize" name="oneplace">
+        <input type="number" placeholder="2nd Prize" name="twoplace">
+       </div>
+      <div class="btn-block">
+        <button type="submit" href="/">Submit</button>
+      </div>
+            </form>
+          </div>
+  </div>
+</div>
+</div>
+<div id="myModal2" class="modal">
+    <div class="modal-color">
+  <div class="modal-content">
+    <span class="close2" style="margin-right: 20px;color: rgb(52, 235, 229);">&times;</span>
+    <div class="form-popup" Id="myForm">
+            <form class="form-container" method="post">
+              {%csrf_token%}
+              <input type="text" name="game" value="football" hidden>
+              <div class="form-left-decoration"></div>
+      <div class="form-right-decoration"></div>
+      <div class="circle"></div>
+      <div class="form-inner">
+        <h1>Fill Up</h1>
+        <input type="text" placeholder="Venue" name="venue">
+        <input type="date" placeholder="Date" name="from">
+        <input type="number" placeholder="No. of teams" name="teams">
+        <input type="number" placeholder="Entry Fee" name="fee">
+        <h2> Prize Money </h2>
+        <input type="number" placeholder="1st Prize" name="oneplace">
+        <input type="number" placeholder="2nd Prize" name="twoplace">
+       </div>
+      <div class="btn-block">
+        <button type="submit" href="/">Submit</button>
+      </div>
+            </form>
+          </div>
+  </div>
+</div>
+</div>
+<div id="myModal3" class="modal">
+    <div class="modal-color">
+  <div class="modal-content">
+    <span class="close3" style="margin-right: 20px;color: rgb(52, 235, 229);">&times;</span>
+    <div class="form-popup" Id="myForm">
+            <form class="form-container" method="post">
+              {%csrf_token%}
+              <input type="text" name="game" value="basketball" hidden>
+              <div class="form-left-decoration"></div>
+      <div class="form-right-decoration"></div>
+      <div class="circle"></div>
+      <div class="form-inner">
+        <h1>Fill Up</h1>
+        <input type="text" placeholder="Venue" name="venue">
+        <input type="date" placeholder="Date" name="from">
+        <input type="number" placeholder="No. of teams" name="teams">
+        <input type="number" placeholder="Entry Fee" name="fee">
+        <h2> Prize Money </h2>
+        <input type="number" placeholder="1st Prize" name="oneplace">
+        <input type="number" placeholder="2nd Prize" name="twoplace">
+       </div>
+      <div class="btn-block">
+        <button type="submit" href="/">Submit</button>
+      </div>
+            </form>
+          </div>
+        </div>
+  </div>
+</div>
+<div id="myModal4" class="modal">
+    <div class="modal-color">
+  <div class="modal-content">
+    <span class="close4" style="margin-right: 20px;color: rgb(52, 235, 229);">&times;</span>
+    <div class="form-popup" Id="myForm">
+            <form class="form-container" method="post">
+              {%csrf_token%}
+              <input type="text" name="game" value="kabaddi" hidden>
+              <div class="form-left-decoration"></div>
+      <div class="form-right-decoration"></div>
+      <div class="circle"></div>
+      <div class="form-inner">
+        <h1>Fill Up</h1>
+        <input type="text" placeholder="Venue" name="venue">
+        <input type="date" placeholder="Date" name="from">
+        <input type="number" placeholder="No. of teams" name="teams">
+        <input type="number" placeholder="Entry Fee" name="fee">
+        <h2> Prize Money </h2>
+        <input type="number" placeholder="1st Prize" name="oneplace">
+        <input type="number" placeholder="2nd Prize" name="twoplace">
+       </div>
+      <div class="btn-block">
+        <button type="submit" href="/">Submit</button>
+      </div>
+            </form>
+          </div>
+        </div>
+  </div>
+</div>
+<div id="myModal5" class="modal">
+    <div class="modal-color">
+  <div class="modal-content">
+    <span class="close5" style="margin-right: 20px;color: rgb(52, 235, 229);">&times;</span>
+    <div class="form-popup" Id="myForm">
+            <form class="form-container" method="post">
+              {%csrf_token%}
+              <input type="text" name="game" value="badminton" hidden>
+              <div class="form-left-decoration"></div>
+      <div class="form-right-decoration"></div>
+      <div class="circle"></div>
+      <div class="form-inner">
+        <h1>Fill Up</h1>
+        <input type="text" placeholder="Venue" name="venue">
+        <input type="date" placeholder="Date" name="from">
+        <input type="number" placeholder="No. of teams" name="teams">
+        <input type="number" placeholder="Entry Fee" name="fee">
+        <h2> Prize Money </h2>
+        <input type="number" placeholder="1st Prize" name="oneplace">
+        <input type="number" placeholder="2nd Prize" name="twoplace">
+       </div>
+      <div class="btn-block">
+        <button type="submit" href="/">Submit</button>
+      </div>
+            </form>
+          </div>
+        </div>
+  </div>
+</div>
+<div id="myModal6" class="modal">
+    <div class="modal-color">
+  <div class="modal-content">
+    <span class="close6" style="margin-right: 20px;color: rgb(52, 235, 229);">&times;</span>
+    <div class="form-popup" Id="myForm">
+            <form class="form-container" method="post">
+              {%csrf_token%}
+              <input type="text" name="game" value="volleyball" hidden>
+              <div class="form-left-decoration"></div>
+      <div class="form-right-decoration"></div>
+      <div class="circle"></div>
+      <div class="form-inner">
+        <h1>Fill Up</h1>
+        <input type="text" placeholder="Venue" name="venue">
+        <input type="date" placeholder="Date" name="from">
+        <input type="number" placeholder="No. of teams" name="teams">
+        <input type="number" placeholder="Entry Fee" name="fee">
+        <h2> Prize Money </h2>
+        <input type="number" placeholder="1st Prize" name="oneplace">
+        <input type="number" placeholder="2nd Prize" name="twoplace">
+       </div>
+      <div class="btn-block">
+        <button type="submit" href="/">Submit</button>
+      </div>
+            </form>
+          </div>
+        </div>
+  </div>
+</div>
+<div id="myModal7" class="modal">
+    <div class="modal-color">
+  <div class="modal-content">
+    <span class="close7" style="margin-right: 20px;color: rgb(52, 235, 229);">&times;</span>
+    <div class="form-popup" Id="myForm">
+            <form class="form-container" method="post">
+              {%csrf_token%}
+              <input type="text" name="game" value="tableTennis" hidden>
+              <div class="form-left-decoration"></div>
+      <div class="form-right-decoration"></div>
+      <div class="circle"></div>
+      <div class="form-inner">
+        <h1>Fill Up</h1>
+        <input type="text" placeholder="Venue" name="venue">
+        <input type="date" placeholder="Date" name="from">
+        <input type="number" placeholder="No. of teams" name="teams">
+        <input type="number" placeholder="Entry Fee" name="fee">
+        <h2> Prize Money </h2>
+        <input type="number" placeholder="1st Prize" name="oneplace">
+        <input type="number" placeholder="2nd Prize" name="twoplace">
+       </div>
+      <div class="btn-block">
+        <button type="submit" href="/">Submit</button>
+      </div>
+            </form>
+          </div>
+        </div>
+  </div>
+</div>
+<div id="myModal8" class="modal">
+    <div class="modal-color">
+  <div class="modal-content">
+    <span class="close8" style="margin-right: 20px;color: rgb(52, 235, 229);">&times;</span>
+    <div class="form-popup" Id="myForm">
+            <form class="form-container" method="post">
+              {%csrf_token%}
+              <input type="text" name="game" value="hockey" hidden>
+              <div class="form-left-decoration"></div>
+      <div class="form-right-decoration"></div>
+      <div class="circle"></div>
+      <div class="form-inner">
+        <h1>Fill Up</h1>
+        <input type="text" placeholder="Venue" name="venue">
+        <input type="date" placeholder="Date" name="from">
+        <input type="number" placeholder="No. of teams" name="teams">
+        <input type="number" placeholder="Entry Fee" name="fee">
+        <h2> Prize Money </h2>
+        <input type="number" placeholder="1st Prize" name="oneplace">
+        <input type="number" placeholder="2nd Prize" name="twoplace">
+       </div>
+      <div class="btn-block">
+        <button type="submit" href="/">Submit</button>
+      </div>
+            </form>
+          </div>
+        </div>
+  </div>
+</div>
+</body>
+
+<script>
+// Get the modal
+var modal1 = document.getElementById("myModal1");
+var modal2 = document.getElementById("myModal2");
+var modal3 = document.getElementById("myModal3");
+var modal4 = document.getElementById("myModal4");
+var modal5 = document.getElementById("myModal5");
+var modal6 = document.getElementById("myModal6");
+var modal7 = document.getElementById("myModal7");
+var modal8 = document.getElementById("myModal8");
+// Get the button that opens the modal
+var one2 = document.getElementById("one");
+var two2 = document.getElementById("two");
+var three2 = document.getElementById("three");
+var four2 = document.getElementById("four");
+var five2 = document.getElementById("five");
+var six2 = document.getElementById("six");
+var seven2 = document.getElementById("seven");
+var eight2 = document.getElementById("eight");
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close1")[0];
+var span2 = document.getElementsByClassName("close2")[0];
+var span3 = document.getElementsByClassName("close3")[0];
+var span4 = document.getElementsByClassName("close4")[0];
+var span5 = document.getElementsByClassName("close5")[0];
+var span6 = document.getElementsByClassName("close6")[0];
+var span7 = document.getElementsByClassName("close7")[0];
+var span8 = document.getElementsByClassName("close8")[0];
+// When the user clicks the button, open the modal
+one2.onclick = function() {
+  modal1.style.display = "block";
+}
+two2.onclick = function() {
+  modal2.style.display = "block";
+}
+three2.onclick = function() {
+  modal3.style.display = "block";
+}
+four2.onclick = function() {
+  modal4.style.display = "block";
+}
+five2.onclick = function() {
+  modal5.style.display = "block";
+}
+six2.onclick = function() {
+  modal6.style.display = "block";
+}
+seven2.onclick = function() {
+  modal7.style.display = "block";
+}
+eight2.onclick = function() {
+  modal8.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+  modal1.style.display = "none";
+  one2.checked = false
+}
+span2.onclick = function() {
+  modal2.style.display = "none";
+  two2.checked = false
+}
+span3.onclick = function() {
+  modal3.style.display = "none";
+  three2.checked = false
+}
+span4.onclick = function() {
+  modal4.style.display = "none";
+  four2.checked = false
+}
+span5.onclick = function() {
+  modal5.style.display = "none";
+  five2.checked = false
+}
+span6.onclick = function() {
+  modal6.style.display = "none";
+  six2.checked = false
+}
+span7.onclick = function() {
+  modal7.style.display = "none";
+  seven2.checked = false
+}
+span8.onclick = function() {
+  modal8.style.display = "none";
+  eight2.checked = false
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal1) {
+    modal1.style.display = "none";
+    one2.checked = false
+  }
+  if (event.target == modal2) {
+    modal2.style.display = "none";
+    two2.checked = false
+  }
+  if (event.target == modal3) {
+    modal3.style.display = "none";
+    three2.checked = false
+  }
+  if (event.target == modal4) {
+    modal4.style.display = "none";
+    four2.checked = false
+  }
+  if (event.target == modal5) {
+    modal5.style.display = "none";
+    five2.checked = false
+  }
+  if (event.target == modal6) {
+    modal6.style.display = "none";
+    six2.checked = false
+  }
+  if (event.target == modal7) {
+    modal7.style.display = "none";
+    seven2.checked = false
+  }
+  if (event.target == modal8) {
+    modal8.style.display = "none";
+    eight2.checked = false
+  }
+}
+</script>
+</html>

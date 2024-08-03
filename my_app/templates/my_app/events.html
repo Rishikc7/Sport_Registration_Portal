@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Sports</title>
+    <style>
+      body, div, form, input, select, textarea, label {
+      padding: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin:0;
+      font-size: 60px;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      color: #fff;
+      z-index: 2;
+      line-height: 83px;
+      top:10px;
+      }
+      legend {
+      padding: 10px;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 23px;
+      font-weight: 500;
+      color: #fff;
+      background-color: #32dded;
+    }
+        #results {
+          font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #results td, #results th {
+          border: 1px solid #ddd;
+          padding: 4px;
+        }
+
+        #results tr:nth-child(even){background-color: #f2f2f2;}
+
+        #results tr:hover {background-color: #ddd;}
+
+        #results th {
+          padding-top: 8px;
+          padding-bottom: 8px;
+          text-align: left;
+          background-color: rgb(3, 252, 232);
+          color: white;
+        }
+    </style>
+    <!-- Favicon -->
+    <script>
+      function openForm() {
+        document.getElementById("myForm123").style.display = "block";
+      }
+
+      function closeForm() {
+        document.getElementById("myForm123").style.display = "none";
+      }
+    </script>
+
+
+    <!-- Stylesheet -->
+      <link rel="stylesheet" href="{% static 'css/events.css'%}">
+      <link rel="stylesheet" href="{% static 'css/style3.css'%}">
+</head>
+
+<body>
+    <!-- Preloader -->
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 d-flex align-items-center justify-content-between">
+                        <!-- Logo Area -->
+                        <div class="logo">
+                            <a href="index.html"><img src="{% static 'img/logo.jpg' %}" style="width: 200px;height: 50px; margin-right: 70%;"alt=""></a>
+
+                        <!-- Search & Login Area -->
+                            <img src="{% static 'img/icon/i3.png' %}" style="border-radius: 50%; width: 75px; "   alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="egames-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="egamesNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'institute' %}">Home</a></li>
+                                    <li><a href="http://127.0.0.1:8000/my_app/institute/">Back</a></li>
+                                    </li>
+<!--                                    <li><a href="http://127.0.0.1:8000/information/contact/">Contact</a></li>-->
+                                    {% if user.is_authenticated %}
+                                        <li><a href="{% url 'inst_logout' %}">Logout</a></li>
+                                        <li><a href="{% url 'inst_profile' %}">Profile</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+<div class="eve">
+    {% for lesson in college %}
+    {% if user == lesson.created_by %}
+    <br/>
+          <fieldset class="fcon">
+        <legend>{{ lesson.festName }} -- {{lesson.esd}} - {{lesson.eed}}</legend>
+        <div style="font-size: 20px; margin-left: 10%; margin-bottom: 2%; color: black; font-weight:600; text-shadow: 2px 2px rgb(3, 252, 232)">
+          Sport Registered:
+          {% for sports in sport %}
+          {% if sports.fest == lesson  %}
+          {% if sports.game == "cricket" %}
+            Cricket
+          {% endif %}
+          {% if sports.game == "volleyball" %}
+            Volleyball
+          {% endif %}
+          {% if sports.game == "football" %}
+            Football
+          {% endif %}
+          {% if sports.game == "basketball" %}
+            Basketball
+          {% endif %}
+          {% if sports.game == "hockey" %}
+            Hockey
+          {% endif %}
+          {% if sports.game == "kabaddi" %}
+            Kabaddi
+          {% endif %}
+          {% if sports.game == "badminton" %}
+            Badminton
+          {% endif %}
+          {% if sports.game == "tabletennis" %}
+            Tabletennis
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="tbadd">
+          <div style="text-align:center; font-size: 20px; color: white;">Registrations Recieved</div>
+        </div>
+          <table border="1" class="center" id="results" style="width :80%; margin-left:10%;">
+            <tbody style="text-align:center;">
+              <tr style="font-weight:bold;text-align:center;">
+                <th style="width:10%; text-align:center;">Sport</td>
+                <th style="width:15%; text-align:center;">Student</td>
+                <th style="width:10%; text-align:center;">Phone No</td>
+                <th style="width:20%; text-align:center;">Institute Name</td>
+              </tr>
+              {% for sports in sport %}
+              {% if sports.fest == lesson  %}
+              {% if sports.game == "cricket" %}
+              {% for crickets in cricket %}
+              {% if crickets.inst == sports  %}
+                  <tr>
+                    <td>{{ sports.game }}</td>
+                    <td>{{ crickets.p1 }} </td>
+                    <td>{{ crickets.contactNumber }}</td>
+                    <td>{{ crickets.instituteName }}</td>
+                  </tr>
+              {% endif %}
+              {% endfor %}
+              {% endif %}
+            {% if sports.game == "volleyball" %}
+                {% for volleys in volley %}
+                {% if volleys.inst == sports  %}
+                <tr>
+                  <td>{{ sports.game }}</td>
+                  <td>{{ volleys.p1 }} </td>
+                  <td>{{ volleys.contactNumber }}</td>
+                  <td>{{ volleys.instituteName }}</td>
+              </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% if sports.game == "football" %}
+                {% for foots in football %}
+                {% if foots.inst == sports  %}
+                <tr>
+                  <td>{{ sports.game }}</td>
+                  <td>{{ foots.p1 }} </td>
+                  <td>{{ foots.contactNumber }}</td>
+                  <td>{{ foots.instituteName }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if sports.game == "basketball" %}
+                {% for basketballs in basketball %}
+                {% if basketballs.inst == sports  %}
+                <tr>
+                  <td>{{ sports.game }}</td>
+                  <td>{{ basketballs.p1 }} </td>
+                  <td>{{ basketballs.contactNumber }}</td>
+                  <td>{{ basketballs.instituteName }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if sports.game == "hockey" %}
+                {% for hockeys in hockey %}
+                {% if hockeys.inst == sports  %}
+                <tr>
+                  <td>{{ sports.game }}</td>
+                  <td>{{ hockeys.p1 }} </td>
+                  <td>{{ hockeys.contactNumber }}</td>
+                  <td>{{ hockeys.instituteName }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if sports.game == "kabaddi" %}
+                {% for kabaddis in kabaddi %}
+                {% if kabaddis.inst == sports  %}
+                <tr>
+                  <td>{{ sports.game }}</td>
+                  <td>{{ kabaddis.p1 }} </td>
+                  <td>{{ kabaddis.contactNumber }}</td>
+                  <td>{{ kabaddis.instituteName }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if sports.game == "badminton" %}
+                {% for badmintons in badminton %}
+                {% if badmintons.inst == sports  %}
+                    {% if badmintons.p1 %}
+                          <tr>
+                            <td>{{ sports.game }}-Singles</td>
+                            <td>{{ badmintons.p1 }} </td>
+                            <td>{{ badmintons.contactNumber }}</td>
+                            <td>{{ badmintons.instituteName }}</td>
+                          </tr>
+                    {% else %}
+                    <tr>
+                      <td>{{ sports.game }}-Doubles</td>
+                      <td>{{ badmintons.p21 }} </td>
+                      <td>{{ badmintons.contactNumber2 }}</td>
+                      <td>{{ badmintons.instituteName2 }}</td>
+                    </tr>
+                    {% endif %}
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if sports.game == "tabletennis" %}
+                {% for tt in tabletennis %}
+                {% if tt.inst == sports  %}
+                    {% if tt.p1 %}
+                    <tr>
+                      <td>{{ sports.game }}-Singles</td>
+                      <td>{{ tt.p1 }} </td>
+                      <td>{{ tt.contactNumber }}</td>
+                      <td>{{ tt.instituteName }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                      <td>{{ sports.game }}-Doubles</td>
+                      <td>{{ tt.p21 }} </td>
+                      <td>{{ tt.contactNumber2 }}</td>
+                      <td>{{ tt.instituteName2 }}</td>
+                    </tr>
+                    {% endif %}
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+      </tbody>
+      </table>
+    </fieldset>
+    {% endif %}
+    {% endfor %}
+
+</div>
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>

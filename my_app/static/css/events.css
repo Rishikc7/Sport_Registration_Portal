@@ -1,0 +1,57 @@
+legend {
+      padding: 10px;
+      font-family: Roboto, Arial, sans-serif;
+      color: #fff;
+      background-color: #32dded;
+      }
+
+.eve{
+  margin-bottom: 4%;
+}
+/* Button used to open the contact form - fixed at the bottom of the page */
+.form-containera1 .btna1 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.form-containera1 .cancela1 {
+  background-color: red;
+}
+
+.form-containera1 .btna1:hover, .open-buttona1:hover {
+  opacity: 1;
+}
+
+.open-buttona1 {
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* The popup form - hidden by default */
+.form-popup123 {
+  display: none;
+  border: 1px solid #f1f1f1;
+}
+
+/* Add styles to the form container */
+.form-containera1 {
+  max-width: 900px;
+  padding: 10px;
+  background-color: white;
+}
+
+.tbadd{
+      width: 78.35%;
+      height: 3%;
+      background-color: rgb(3, 252, 232);
+      margin-left: 10%;
+      padding: 10px;
+}

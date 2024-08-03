@@ -1,0 +1,273 @@
+body{
+	/*background-color: #1f618d;*/
+	background-image: url(../img/blurr.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+	/*margin-top: 0%;*/
+	margin-left: 0%;
+	font-family: Roboto, Arial, sans-serif;
+}
+.div1{
+	width: 650px;
+	height: 400px;
+	border-radius: 1em;
+	/*background-image: url(../img/back.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;*/
+				margin-top: 2%;
+				margin-right: 20%;
+				margin-left: 28%;
+	border: 1.5px solid;
+	border-color: rgb(255, 255, 255);
+	box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.7);
+}
+
+.form{
+	padding: 40px;
+}
+
+.multiselect {
+  width: 200px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+input[type=checkbox] {
+	width: 20px;
+	height: 20px;
+}
+
+.b1 {
+  color: black;
+	font-size: 27px;
+	font-weight: 400
+}
+
+.box{
+	width: 20px;
+	height: 20px;
+}
+
+.rowone{
+	color: #AAAAAA;
+	font-size: 15px;
+
+}
+/*.modal {
+  display: none; /* Hidden by default */
+  /*position: fixed; /* Stay in place */
+  /*z-index: 1; /* Sit on top */
+  /*padding-top: 30px; /* Location of the box */
+  /*left: 0;
+  top: 0;
+	width: 100%; /* Full width */
+  /*height: 100%; /* Full height */
+  /*overflow: auto; /* Enable scroll if needed */
+  /*background-color: rgb(0,0,0); /* Fallback color */
+  /*background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+/*}
+
+/* Modal Content */
+.modal-content {
+
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  overflow: auto;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 70%;
+  height: 95%;
+  border-radius: 0.6em;
+}
+
+.modal-color{
+	margin-top: 0.4%;
+	margin-bottom: 0.4%;
+	border-radius: 0.3em;
+	background: #32dded;
+	width: 45%;
+	height: 98%;
+	padding-top: 30px;
+	margin-left: 27.5%;
+}
+/* The Close Button */
+span{
+  color: rgb(52, 235, 229);
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/*.close*:hover,
+.close*:focus*/
+[class*="close"]:hover, [class*="close"]:focus{
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.Ven{
+	color: #000000;
+	font-size: 25px;
+	margin-bottom: 25px;
+	padding-right: 20px;
+}
+
+.venin{
+
+	margin-left: 70px;
+	border-radius: 0.4em;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	letter-spacing: 0.5px;
+	font-weight: 550;
+	width: 55%;
+	border: none;
+	outline: none;
+	border: 1px solid;
+	border-color: rgb(108, 29, 153);
+
+}
+.datein{
+	align-self: left;
+	margin-left: 85px;
+	padding-left: 10px;
+	border-radius: 0.4em;
+	padding-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	letter-spacing: 0.5px;
+	font-weight: 550;
+	width: 30%;
+	font: 15px
+	border: none;
+	outline: none;
+}
+
+.teamin{
+	align-self: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 0.4em;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	letter-spacing: 0.5px;
+	font-weight: 550;
+	margin-left: 5px;
+	width: 52%;
+	border: none;
+	outline: none;
+	border: 1px solid;
+	border-color: rgb(108, 29, 153);
+}
+
+.Fee{
+	color: #000000;
+	font-size: 25px;
+	margin-bottom: 25px;
+	padding-right: 20px;
+}
+
+.feein{
+	align-self: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 0.4em;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	letter-spacing: 0.5px;
+	font-weight: 550;
+	margin-left: 35px;
+	width: 55%;
+	border: none;
+	outline: none;
+	border: 1px solid;
+	border-color: rgb(108, 29, 153);
+}
+
+.Oneplace{
+	color: #000000;
+	font-size: 25px;
+	margin-bottom: 25px;
+	padding-right: 20px;
+}
+
+.oneplacein{
+	align-self: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 0.4em;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	letter-spacing: 0.5px;
+	font-weight: 550;
+	margin-left: 45px;
+	width: 55%;
+	border: none;
+	outline: none;
+	border: 1px solid;
+	border-color: rgb(108, 29, 153);
+}
+
+.Twoplace{
+	color: #000000;
+	font-size: 25px;
+	margin-bottom: 25px;
+	padding-right: 20px;
+}
+
+.twoplacein{
+	align-self: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 0.4em;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	letter-spacing: 0.5px;
+	font-weight: 550;
+	margin-left: 38px;
+	width: 55%;
+	border: none;
+	outline: none;
+	border: 1px solid;
+	border-color: rgb(108, 29, 153);
+}
+
+.Date0{
+	color: #000000;
+	font-size: 25px;
+	margin-bottom: 25px;
+}
+
+
+
+.Teams{
+	color: #000000;
+	font-size: 25px;
+	margin-bottom: 25px;
+}
+
+.dbtn{
+	align-self: center;
+	border-radius: 5em;
+    color: #fff;
+    border: 0;
+    background-color: rgb(119, 0, 255);
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 8.5px;
+    padding-top: 8.5px;
+    margin-left: 35%;
+    font-size: 15px;
+}

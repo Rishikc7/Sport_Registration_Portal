@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+	<title>bad2</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".Doubles-form").hide();
+$(".doubles").css("background", "none");
+
+$(".doubles").click(function() {
+  $(".singles-form").hide();
+  $(".Doubles-form").show();
+  $(".singles").css("background", "none");
+  $(".doubles").css("background", "#fff");
+});
+
+$(".singles").click(function() {
+  $(".singles-form").show();
+  $(".Doubles-form").hide();
+  $(".doubles").css("background", "none");
+  $(".singles").css("background", "#fff");
+});
+
+$(".btn").click(function() {
+  $(".input").val("");
+});
+
+});
+</script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bad2.css' %}">
+</head>
+<body>
+	  <div class="wrapper">
+    <div class="container">
+
+      <div class="singles">Singles</div>
+      <div class="doubles">Doubles</div>
+
+			<form method="post">
+				{% csrf_token %}
+       <div class="singles-form">
+          <input type="text" name="instituteName" placeholder="Institute Name" id="input"><br />
+          <input type="text" name="p1" placeholder="Your name" id="input"><br />
+          <input type="tel" name="contactNumber" placeholder="Contact Number" id="input"><br />
+          <input class="btn" type="submit" name="Submit">
+       </div>
+
+      <div class="Doubles-form">
+          <input type="text" name="instituteName2" placeholder="Institute Name" id="input"><br />
+          <input type="text" name="p21" placeholder="Player 1" id="input"><br />
+          <input type="text" name="p22" placeholder="Player 2" id="input"><br />
+          <input type="tel" name="contactNumber2" placeholder="Contact Number" id="input"><br />
+          <input class="btn" type="submit" name="Submit">
+       </div>
+		 </form>
+
+    </div>
+  </div>
+</body>
+</html>

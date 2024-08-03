@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Search</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bad.css' %}">
+  </head>
+  <body>
+    <div class="wrapper">
+    <div class="container">
+
+    <form method="post">
+      {% csrf_token %}
+<div class="singles-form">
+      <input type="text" name="instituteName" placeholder="Search for institute name" id="input">
+      <input type="text" name="game" placeholder="Search for game" id="input">
+      <input class="btn" type="submit" value="Search">
+</div>
+    </form>
+
+        </div>
+    <div class="data">
+      <div class="t">
+      <table border="1" class="center">
+        <tbody style="text-align:center;">
+          <tr style="font-weight:bold;text-align:center;">
+            <td style="width:20%;">Institute Name</td>
+            <td style="width:20%;">Game Name</td>
+            <td style="width:20%;">Date</td>
+            <td style="width:20%;">Max. Teams</td>
+            <td style="width:45%;">Registration Link</td>
+          </tr>
+          {% for data in details %}
+          <tr>
+            <td>{{ data.instituteName}}</td>
+            <td>{{ data.game }}</td>
+            <td>{{ data.date }}</td>
+            <td>{{ data.teams }}</td>
+            <td><a href="/my_app/information/{{data.game}}/{{data.instituteName}}/">Fill the Form</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+
+  </div>
+  </body>
+</html>

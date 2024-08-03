@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html >
+<head>
+    {% load static %}
+  <title>Registration Form</title>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet"  href="{% static 'css/formz.css'%}">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+</head>
+<body style="background: LightGray">
+
+
+ <div  style="padding: 10px;">
+
+   <div class="container p-3 my-3 border" >
+   <div class="frame">
+      <form  class="needs-validation" method='post'>
+        {% csrf_token %}
+        <header  style="text-align: center; padding-bottom: 15px;" ><h2>Submit your Event</h2>   </header>
+          <fieldset>
+
+            <div class="row">
+                                        <section class="col col-4">
+                                            <div class="form-group">
+                              <label for="name" class="a1">Your Name</label>
+                           <input type="text" class=" form-control form-styling" name="name" id="name" placeholder="Enter name">
+
+                         </div>
+                                        </section>
+                                           <section class="col col-4">
+                                            <div class="form-group">
+                                   <label for="email" class="a1">Email address</label>
+                           <input type="email" class="form-control form-styling" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+
+                              </div>
+                                        </section>
+                                        <section class="col col-4">
+                                              <div class="form-group">
+                            <label for="number" class="a1">Phone Number</label>
+                         <input type="text" class="form-control form-styling" name="number" id="number" aria-describedby="emailHelp" placeholder="Enter phonenumber">
+
+                                      </div>
+                                        </section>
+                                   </div>
+
+                                   <div class="form-group">
+    <label for="festName" class="a1">Fest Name</label>
+    <input type="text" class="form-control form-styling" name="festName" id="festName" aria-describedby="emailHelp" placeholder="Enter fest name">
+
+  </div>
+                                       <div class="form-group">
+                                     <label for="festDesc" class="a1">Fest Description</label>
+                                      <textarea class="form-control form-styling" name="festDesc" id="festDesc"  rows="2"></textarea>
+                                   </div>
+
+
+                        <div class="row">
+
+                              <section class="col col-4">
+                                              <div class="form-group">
+    <label for="college" class="a1">College</label>
+    <input type="text" class="form-control form-styling" name="college" id="college" aria-describedby="emailHelp" placeholder="Enter Venue">
+
+  </div>
+                                        </section>
+
+
+                                           <section class="col col-4">
+                                              <div class="form-group">
+    <label for="city" class="a1">City</label>
+    <input type="text" class="form-control form-styling" name="city" id="city" aria-describedby="emailHelp" placeholder="Enter city name">
+
+  </div>
+                                        </section>
+                                          <section class="col col-4">
+
+                                     <div class="form-group">
+    <label for="state" class="a1">State</label>
+    <select class="form-control form-styling" id="state" name="state">
+<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+<option value="Andhra Pradesh">Andhra Pradesh</option>
+<option value="Assam">Assam</option>
+<option value="Bihar">Bihar</option>
+<option value="Chhattisgarh">Chhattisgarh</option>
+<option value="Goa">Goa</option>
+<option value="Gujarat">Gujarat</option>
+<option value="Haryana">Haryana</option>
+<option value="Himachal Pradesh">Himachal Pradesh</option>
+<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+<option value="Jharkhand">Jharkhand</option>
+<option value="Karnataka">Karnataka</option>
+<option value="Kerala">Kerala</option>
+<option value="Madhya Pradesh">Madhya Pradesh</option>
+<option value="Maharashtra">Maharashtra</option>
+<option value="Manipur">Manipur</option>
+<option value="Meghalaya">Meghalaya</option>
+<option value="Mizoram">Mizoram</option>
+<option value="Nagaland">Nagaland</option>
+<option value="Odisha">Odisha</option>
+<option value="Punjab">Punjab</option>
+<option value="Rajasthan">Rajasthan</option>
+<option value="Sikkim">Sikkim</option>
+<option value="Tamil Nadu">Tamil Nadu</option>
+<option value="Telangana">Telangana</option>
+<option value="Tripura">Tripura</option>
+<option value="Uttar Pradesh">Uttar Pradesh</option>
+<option value="Uttarakhand">Uttarakhand</option>
+<option value="West Bengal">West Bengal</option>
+<option value="Online">Online</option>
+<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+<option value="Chandigarh">Chandigarh</option>
+<option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+<option value="Daman and Diu">Daman and Diu</option>
+<option value="Lakshadweep">Lakshadweep</option>
+<option value="Delhi">Delhi</option>
+<option value="Puducherry">Puducherry</option>
+ </select>
+
+</div>
+</section>
+
+
+        <div style="margin-left: 345px;"   class="row">
+            <section class="col col-6">
+             <label for="esd" class="a1">Event Start-Date</label>
+             <input class="Date" type="date" name="esd" id="esd">
+            </section>
+            <section  class="col col-6">
+              <label for="eed" class="a1">Event End-Date</label>
+              <input class="Date"   type="date" name="eed" id="eed">
+            </section>
+        </div>
+
+
+
+</fieldsset>
+
+<div style="margin-top: 50px; margin-right: 400px; margin-left: 500px;">
+  <!-- <a href= "http://127.0.0.1:8000/register/"> -->
+    <input type="submit" name="next" class="next" name="next" id="next" value="Next">
+</div>
+
+
+  </form>
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<!------script--->
+<script>
+// Disable form submissions if there are invalid fields
+// Get the modal
+function myFun() {
+  location.replace("https:register.html")
+}
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Get the forms we want to add validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

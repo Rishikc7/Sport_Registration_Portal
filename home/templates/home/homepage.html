@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Sports</title>
+
+
+
+    <!-- Favicon -->
+    <link rel="icon"  type="image/x-icon"  href="{% static 'home/img/favicon.ico' %}">
+
+    <!-- Stylesheet -->
+<!--    <link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+    {% for message in messages %}
+
+                    <div class="alert alert-success" style="background: grey ; color:white">
+                        <a class="close" href="#" data-dismiss="alert" style="color:white">×</a>
+
+                        {{ message }}
+
+                    </div>
+            {% endfor %}
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area wow fadeInDown" data-wow-delay="500ms">
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 d-flex align-items-center justify-content-between">
+                        <!-- Logo Area -->
+                        <div class="logo">
+                            <a href="http://127.0.0.1:8000/"><img src="{% static 'home/img/logo.jpg'%}" style="width: 200px;height: 50px;" alt="Hello"></a>
+                        </div>
+
+                        <!-- Search & Login Area -->
+                       <div class="search-login-area d-flex align-items-center">
+                            <!-- Top Search Area -->
+                           <!---- <div class="top-search-area">
+                                <form action="#" method="post">
+                                    <input type="search" name="top-search" id="topSearch" placeholder="Search">
+                                    <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>-->
+                            <!-- Login Area -->
+                           <div class="login-area">
+                               <!---- <a href="#"><span>Login / Register</span> <i class="fa fa-lock" aria-hidden="true"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="egames-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="egamesNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="http://127.0.0.1:8000/">Home</a></li>
+                                  
+                                    
+                                    <li><a href="#">Login</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{% url 'register' %}">SignUp</a></li>
+                                            <li><a href="{% url 'register' %}">SignIn</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'contact' %}">Contact</a>
+<!--                                        <ul class="dropdown">-->
+<!--                                            <li>gmail: sportsPortal@gmail.com</li>-->
+<!--                                            <li>Phone num:7036864471</li>-->
+<!--                                        </ul>-->
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Top Social Info -->
+<!--                        <div class="top-social-info">-->
+<!--                            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>-->
+<!--                            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
+<!--                            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+<!--                    -->
+<!--                        </div>-->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Hero Area Start ##### -->
+    <div class="hero-area"> 
+        <!-- Hero Post Slides -->
+        <div class="hero-post-slides owl-carousel">
+
+            <!-- Single Slide -->
+            <div class="single-slide bg-img bg-overlay" style="background-image: url(/static/home/img/cover.jpg);">
+                <!-- Blog Content -->
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12 col-lg-9">
+                            <div class="blog-content" data-animation="fadeInUp" data-delay="100ms">
+                                <h2 data-animation="fadeInUp" data-delay="400ms">Sports</h2>
+                                <p data-animation="fadeInUp" data-delay="700ms">Just play. Have fun. Enjoy the game.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Slide -->
+            <div class="single-slide bg-img bg-overlay" style="background-image: url(/static/home/img/bg-img/2.jpg);">
+                
+                <!-- Blog Content -->
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12 col-lg-9">
+                            <div class="blog-content" data-animation="fadeInUp" data-delay="100ms">
+                                <h2 data-animation="fadeInUp" data-delay="400ms">The Power of Gaming</h2>
+                                <p data-animation="fadeInUp" data-delay="700ms">Do you know what my favorite part of the game is? The opportunity to play.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- ##### Hero Area End ##### -->
+    
+    <!-- ##### Games Area Start ##### -->
+    <div class="games-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <!-- Single Games Area -->
+                <div class="col-12 col-md-6">
+                    <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
+                       <!--<img src="img/icon/i3.png" style="border-radius: 50%; width: 75px; "   alt="">-->
+<!--                        <a href="http://127.0.0.1:8000/information/signup/" class="btn egames-btn mt-30">SignUp</a>-->
+                        <a href="{% url 'register' %}" class="btn egames-btn mt-30" style="width: auto">SignUp</a>
+                    </div>
+                </div>
+
+               
+                <div class="col-12 col-md-6">
+                    <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="500ms">
+                       <!---- <img src="img/icon/s3.jpg" style="border-radius: 50%; width: 75px; "  alt="">-->
+                        <a href="{% url 'register' %}" class="btn egames-btn mt-30" style="width: auto">SignIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Games Area End ##### -->
+
+    <!-- ##### Monthly Picks Area Start ##### -->
+    <section class="monthly-picks-area section-padding-100 bg-pattern" style="padding: 100px  0px 100px 0px">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="left-right-pattern"></div>
+                </div>
+            </div>
+        </div>
+
+            <div class="container">
+         <!----  <div class="row">
+                <div class="col-12">
+                   
+                    <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">This Month’s Pick</h2>
+                </div>
+            </div>-->
+
+            <div class="row">
+                <div class="col-12">
+                    <ul class="nav nav-tabs wow fadeInUp" data-wow-delay="300ms" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="popular-tab" data-toggle="tab" href="#popular" role="tab" aria-controls="popular" aria-selected="true">Sports</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="latest-tab" data-toggle="tab" href="#latest" role="tab" aria-controls="latest" aria-selected="false">Events</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+      <div class="tab-content wow fadeInUp" data-wow-delay="500ms" id="myTabContent">
+            <div class="tab-pane fade show active" id="popular" role="tabpanel" aria-labelledby="popular-tab">
+                <!-- Popular Games Slideshow -->
+                <div class="popular-games-slideshow owl-carousel">
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/slides/b.jpg'%}" style="width: 400px;height: 340px;" alt="Basketball">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">Basketball</a>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/slides/c.jpg'%}" style="width: 400px;height: 340px;" alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">Cricket</a>
+                           
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/slides/f.jpg'%}" style="width: 400px;height: 340px;" alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">Football</a>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/slides/t.jpg'%}" style="width: 400px;height: 340px;" alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">Table tennis</a>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/slides/s.jpg'%}" style="width: 400px;height: 340px;" alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">Baadminton</a>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/slides/v.jpg'%}" style="width: 400px;height: 340px;" alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">Volleyball</a>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/slides/k.jpg'%}" style="width: 400px;height: 340px;" alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">Kabbadi</a>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/slides/h.jpg'%}" style="width: 400px;height: 340px;" alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">Hockey</a>
+                           
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="latest" role="tabpanel" aria-labelledby="latest-tab">
+                <!-- Latest Games Slideshow -->
+                <div class="latest-games-slideshow owl-carousel">
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/events/1.jpg'%}" style="width: 400px;height: 340px;"alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">IIT Bombay</a>
+                           
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/events/3.jpeg'%}" style="width: 400px;height: 340px;" alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">IIIT Sricity</a>
+                           
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/events/2.jpg'%}" style="width: 400px;height: 340px;"alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">IIT Delhi</a>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/events/4.png'%}"style="width: 400px;height: 340px;"alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">IIIT Jabalpur</a>
+                           
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/events/5.jpeg'%}"style="width: 400px;height: 340px;"alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">NIT Trichy</a>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/events/6a.jpeg'%}"style="width: 400px;height: 340px;" alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">NIT Rourkela</a>
+                            <div class="meta-data">
+                                <a href="#">User: 9.1/10</a>
+                                <a href="#">Action</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/events/8.png'%}"style="width: 400px;height: 340px;" alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">BITS Pilani</a>
+                           
+                        </div>
+                    </div>
+
+                    <!-- Single Games -->
+                    <div class="single-games-slide">
+                        <img src="{% static 'home/img/events/7.jpg'%}" style="width: 400px;height: 340px;" alt="">
+                        <div class="slide-text">
+                            <a href="#" class="game-title">IIT Madras</a>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>--->
+      </div>
+    </section>
+
+    
+
+        <!-- Copywrite Area -->
+        
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+<!--    <script src="js/jquery/jquery-2.2.4.min.js"></script>-->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>

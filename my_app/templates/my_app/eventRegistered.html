@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Sports</title>
+    <style>
+      body, div, form, input, select, textarea, label {
+      padding: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin:0;
+      font-size: 60px;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      color: #fff;
+      z-index: 2;
+      line-height: 83px;
+      top:10px;
+      }
+      legend {
+      padding: 10px;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 23px;
+      font-weight: 500;
+      color: #fff;
+      background-color: #32dded;
+    }
+        #results {
+          font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #results td, #results th {
+          border: 1px solid #ddd;
+          padding: 4px;
+        }
+
+        #results tr:nth-child(even){background-color: #f2f2f2;}
+
+        #results tr:hover {background-color: #ddd;}
+
+        #results th {
+          padding-top: 8px;
+          padding-bottom: 8px;
+          text-align: left;
+          background-color: rgb(3, 252, 232);
+          color: white;
+        }
+    </style>
+    <!-- Favicon -->
+    <script>
+      function openForm() {
+        document.getElementById("myForm123").style.display = "block";
+      }
+
+      function closeForm() {
+        document.getElementById("myForm123").style.display = "none";
+      }
+    </script>
+
+
+    <!-- Stylesheet -->
+      <link rel="stylesheet" href="{% static 'css/events.css'%}">
+      <link rel="stylesheet" href="{% static 'css/style3.css'%}">
+</head>
+
+<body>
+    <!-- Preloader -->
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 d-flex align-items-center justify-content-between">
+                        <!-- Logo Area -->
+                        <div class="logo">
+                            <a href="index.html"><img src="{% static 'img/logo.jpg' %}" style="width: 200px;height: 50px; margin-right: 70%;"alt=""></a>
+
+                        <!-- Search & Login Area -->
+                            <img src="{% static 'img/s3.jpg' %}" style="border-radius: 50%; width: 75px; "   alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="egames-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="egamesNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'student' %}">Home</a></li>
+                                    <li><a href="http://127.0.0.1:8000/my_app/student/">Back</a></li>
+                                    </li>
+<!--                                    <li><a href="http://127.0.0.1:8000/information/contact/">Contact</a></li>-->
+                                    {% if user.is_authenticated %}
+                                        <li><a href="{% url 'stud_logout' %}">Logout</a></li>
+                                        <li><a href="{% url 'stud_profile' %}">Profile</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+<div class="eve">
+  <h1>Hello</h1>
+
+  <fieldset class="fcon">
+    <legend>Cricket</legend>
+    <table border="1" class="center" id="results" style="width :80%; margin-left:10%;">
+      <tbody style="text-align:center;">
+        <tr style="font-weight:bold;text-align:center;">
+          <th style="width:10%; text-align:center;">Fest Name</td>
+          <th style="width:15%; text-align:center;">College</td>
+          <th style="width:20%; text-align:center;">Contact</td>
+          <th style="width:10%; text-align:center;">Event Date</td>
+            <th style="width:10%; text-align:center;">Entry Fees</td>
+        </tr>
+        {% for crickets in cricket %}
+        {% if crickets.p1 == user.username or crickets.p1 == user.profile.first_name %}
+            {% for sports in sport %}
+            {% if crickets.inst == sports %}
+                {% for colleges in college %}
+                {% if sports.fest == colleges %}
+                <tr>
+                  <td>{{ colleges.festName }}</td>
+                  <td>{{ colleges.college }}</td>
+                  <td>{{ colleges.email }}</td>
+                  <td>{{ sports.date }}</td>
+                  <td>{{ sports.fee }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endfor %}
+      </tbody>
+      </table>
+  </fieldset>
+
+  <fieldset class="fcon" style="margin-top: 20px;">
+    <legend>Football</legend>
+    <table border="1" class="center" id="results" style="width :80%; margin-left:10%;">
+      <tbody style="text-align:center;">
+        <tr style="font-weight:bold;text-align:center;">
+          <th style="width:10%; text-align:center;">Fest Name</td>
+          <th style="width:15%; text-align:center;">College</td>
+          <th style="width:20%; text-align:center;">Contact</td>
+          <th style="width:10%; text-align:center;">Event Date</td>
+            <th style="width:10%; text-align:center;">Entry Fees</td>
+        </tr>
+        {% for foots in football %}
+        {% if foots.p1 == user.username or foots.p1 == user.profile.first_name %}
+            {% for sports in sport %}
+            {% if foots.inst == sports %}
+                {% for colleges in college %}
+                {% if sports.fest == colleges %}
+                <tr>
+                  <td>{{ colleges.festName }}</td>
+                  <td>{{ colleges.college }}</td>
+                  <td>{{ colleges.email }}</td>
+                  <td>{{ sports.date }}</td>
+                  <td>{{ sports.fee }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endfor %}
+      </tbody>
+      </table>
+  </fieldset>
+
+  <fieldset class="fcon" style="margin-top: 20px;">
+    <legend>Volleyball</legend>
+    <table border="1" class="center" id="results" style="width :80%; margin-left:10%;">
+      <tbody style="text-align:center;">
+        <tr style="font-weight:bold;text-align:center;">
+          <th style="width:10%; text-align:center;">Fest Name</td>
+          <th style="width:15%; text-align:center;">College</td>
+          <th style="width:20%; text-align:center;">Contact</td>
+          <th style="width:10%; text-align:center;">Event Date</td>
+            <th style="width:10%; text-align:center;">Entry Fees</td>
+        </tr>
+        {% for volleys in volley %}
+        {% if volleys.p1 == user.username or volleys.p1 == user.profile.first_name %}
+            {% for sports in sport %}
+            {% if volleys.inst == sports %}
+                {% for colleges in college %}
+                {% if sports.fest == colleges %}
+                <tr>
+                  <td>{{ colleges.festName }}</td>
+                  <td>{{ colleges.college }}</td>
+                  <td>{{ colleges.email }}</td>
+                  <td>{{ sports.date }}</td>
+                  <td>{{ sports.fee }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endfor %}
+      </tbody>
+      </table>
+  </fieldset>
+
+  <fieldset class="fcon" style="margin-top: 20px;">
+    <legend>Basketball</legend>
+    <table border="1" class="center" id="results" style="width :80%; margin-left:10%;">
+      <tbody style="text-align:center;">
+        <tr style="font-weight:bold;text-align:center;">
+          <th style="width:10%; text-align:center;">Fest Name</td>
+          <th style="width:15%; text-align:center;">College</td>
+          <th style="width:20%; text-align:center;">Contact</td>
+          <th style="width:10%; text-align:center;">Event Date</td>
+            <th style="width:10%; text-align:center;">Entry Fees</td>
+        </tr>
+        {% for bas in basketball %}
+        {% if bas.p1 == user.username or bas.p1 == user.profile.first_name %}
+            {% for sports in sport %}
+            {% if bas.inst == sports %}
+                {% for colleges in college %}
+                {% if sports.fest == colleges %}
+                <tr>
+                  <td>{{ colleges.festName }}</td>
+                  <td>{{ colleges.college }}</td>
+                  <td>{{ colleges.email }}</td>
+                  <td>{{ sports.date }}</td>
+                  <td>{{ sports.fee }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endfor %}
+      </tbody>
+      </table>
+  </fieldset>
+
+  <fieldset class="fcon" style="margin-top: 20px;">
+    <legend>Hockey</legend>
+    <table border="1" class="center" id="results" style="width :80%; margin-left:10%;">
+      <tbody style="text-align:center;">
+        <tr style="font-weight:bold;text-align:center;">
+          <th style="width:10%; text-align:center;">Fest Name</td>
+          <th style="width:15%; text-align:center;">College</td>
+          <th style="width:20%; text-align:center;">Contact</td>
+          <th style="width:10%; text-align:center;">Event Date</td>
+            <th style="width:10%; text-align:center;">Entry Fees</td>
+        </tr>
+        {% for hoc in hockey %}
+        {% if hoc.p1 == user.username or hoc.p1 == user.profile.first_name %}
+            {% for sports in sport %}
+            {% if hoc.inst == sports %}
+                {% for colleges in college %}
+                {% if sports.fest == colleges %}
+                <tr>
+                  <td>{{ colleges.festName }}</td>
+                  <td>{{ colleges.college }}</td>
+                  <td>{{ colleges.email }}</td>
+                  <td>{{ sports.date }}</td>
+                  <td>{{ sports.fee }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endfor %}
+      </tbody>
+      </table>
+  </fieldset>
+
+  <fieldset class="fcon" style="margin-top: 20px;">
+    <legend>Kabaddi</legend>
+    <table border="1" class="center" id="results" style="width :80%; margin-left:10%;">
+      <tbody style="text-align:center;">
+        <tr style="font-weight:bold;text-align:center;">
+          <th style="width:10%; text-align:center;">Fest Name</td>
+          <th style="width:15%; text-align:center;">College</td>
+          <th style="width:20%; text-align:center;">Contact</td>
+          <th style="width:10%; text-align:center;">Event Date</td>
+            <th style="width:10%; text-align:center;">Entry Fees</td>
+        </tr>
+        {% for kab in kabaddi %}
+        {% if kab.p1 == user.username or kab.p1 == user.profile.first_name %}
+            {% for sports in sport %}
+            {% if kab.inst == sports %}
+                {% for colleges in college %}
+                {% if sports.fest == colleges %}
+                <tr>
+                  <td>{{ colleges.festName }}</td>
+                  <td>{{ colleges.college }}</td>
+                  <td>{{ colleges.email }}</td>
+                  <td>{{ sports.date }}</td>
+                  <td>{{ sports.fee }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endfor %}
+      </tbody>
+      </table>
+  </fieldset>
+
+
+  <fieldset class="fcon" style="margin-top: 20px;">
+    <legend>Badminton</legend>
+    <table border="1" class="center" id="results" style="width :80%; margin-left:10%;">
+      <tbody style="text-align:center;">
+        <tr style="font-weight:bold;text-align:center;">
+          <th style="width:10%; text-align:center;">Fest Name</td>
+          <th style="width:15%; text-align:center;">College</td>
+          <th style="width:20%; text-align:center;">Contact</td>
+          <th style="width:10%; text-align:center;">Event Date</td>
+            <th style="width:10%; text-align:center;">Entry Fees</td>
+        </tr>
+        {% for bad in badminton %}
+        {% if bad.p1 == user.username or bad.p1 == user.profile.first_name or bad.p21 == user.username or bad.p21 == user.profile.first_name %}
+            <h3 style="color:blue">{{crickets.p1}}</h3>
+            {% for sports in sport %}
+            {% if bad.inst == sports %}
+                {% for colleges in college %}
+                {% if sports.fest == colleges %}
+                <tr>
+                  <td>{{ colleges.festName }}</td>
+                  <td>{{ colleges.college }}</td>
+                  <td>{{ colleges.email }}</td>
+                  <td>{{ sports.date }}</td>
+                  <td>{{ sports.fee }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endfor %}
+      </tbody>
+      </table>
+  </fieldset>
+
+  <fieldset class="fcon" style="margin-top: 20px;">
+    <legend>Tabletennis</legend>
+    <table border="1" class="center" id="results" style="width :80%; margin-left:10%;">
+      <tbody style="text-align:center;">
+        <tr style="font-weight:bold;text-align:center;">
+          <th style="width:10%; text-align:center;">Fest Name</td>
+          <th style="width:15%; text-align:center;">College</td>
+          <th style="width:20%; text-align:center;">Contact</td>
+          <th style="width:10%; text-align:center;">Event Date</td>
+            <th style="width:10%; text-align:center;">Entry Fees</td>
+        </tr>
+        {% for tt in tabletennis%}
+        {% if tt.p1 == user.username or tt.p1 == user.profile.first_name or tt.p21 == user.username or tt.p21 == user.profile.first_name %}
+            <h3 style="color:blue">{{crickets.p1}}</h3>
+            {% for sports in sport %}
+            {% if tt.inst == sports %}
+                {% for colleges in college %}
+                {% if sports.fest == colleges %}
+                <tr>
+                  <td>{{ colleges.festName }}</td>
+                  <td>{{ sports.instituteName }}</td>
+                  <td>{{ colleges.email }}</td>
+                  <td>{{ sports.date }}</td>
+                  <td>{{ sports.fee }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endfor %}
+      </tbody>
+      </table>
+  </fieldset>
+  </body>
+  </html>
+  <h3 style="color:blue">{{crickets.p1}}</h3>
+</div>
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>
